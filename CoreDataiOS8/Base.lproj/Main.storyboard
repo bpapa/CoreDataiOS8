@@ -78,6 +78,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="QVk-go-4He">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hD-7e-Mh6" userLabel="NSAsynchronousFetchRequest fetch">
+                                    <rect key="frame" x="378" y="8" width="214" height="30"/>
+                                    <state key="normal" title="NSAsynchronousFetchRequest">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="doAsyncFetchRequest:" destination="7bK-jq-Zjz" eventType="touchUpInside" id="fQh-oY-oVX"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpI-iM-KnS">
+                                    <rect key="frame" x="8" y="8" width="117" height="30"/>
+                                    <state key="normal" title="NSFetchRequest">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="doFetchRequest:" destination="7bK-jq-Zjz" eventType="touchUpInside" id="UXa-lc-dja"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="6hD-7e-Mh6" secondAttribute="trailing" constant="8" id="6cM-xI-Mz1"/>
+                                <constraint firstItem="6hD-7e-Mh6" firstAttribute="top" secondItem="QVk-go-4He" secondAttribute="top" constant="8" id="7BU-zt-XLl"/>
+                                <constraint firstItem="jpI-iM-KnS" firstAttribute="leading" secondItem="QVk-go-4He" secondAttribute="leading" constant="8" id="J63-fO-1N1"/>
+                                <constraint firstItem="jpI-iM-KnS" firstAttribute="top" secondItem="QVk-go-4He" secondAttribute="top" constant="8" id="nce-09-Dmh"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -99,42 +130,6 @@
                                 <connections>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
                                 </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ButtonsCell" id="qxO-SP-t2I">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qxO-SP-t2I" id="6MD-kX-8oI">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpI-iM-KnS">
-                                            <rect key="frame" x="8" y="7" width="117" height="30"/>
-                                            <state key="normal" title="NSFetchRequest">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="doFetchRequest:" destination="7bK-jq-Zjz" eventType="touchUpInside" id="UXa-lc-dja"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hD-7e-Mh6" userLabel="NSAsynchronousFetchRequest fetch">
-                                            <rect key="frame" x="378" y="8" width="214" height="30"/>
-                                            <state key="normal" title="NSAsynchronousFetchRequest">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="doAsyncFetchRequest:" destination="7bK-jq-Zjz" eventType="touchUpInside" id="fQh-oY-oVX"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="6hD-7e-Mh6" secondAttribute="trailing" constant="8" id="Ees-nE-Qm6"/>
-                                        <constraint firstItem="jpI-iM-KnS" firstAttribute="leading" secondItem="6MD-kX-8oI" secondAttribute="leading" constant="8" id="IDp-68-jdu"/>
-                                        <constraint firstItem="6hD-7e-Mh6" firstAttribute="top" secondItem="6MD-kX-8oI" secondAttribute="top" constant="8" id="JtD-EB-HZb"/>
-                                        <constraint firstItem="jpI-iM-KnS" firstAttribute="top" secondItem="6MD-kX-8oI" secondAttribute="top" constant="7" id="be5-zc-94M"/>
-                                        <constraint firstAttribute="bottom" secondItem="jpI-iM-KnS" secondAttribute="bottom" constant="6" id="rYk-ky-GgY"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
