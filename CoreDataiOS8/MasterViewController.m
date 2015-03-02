@@ -65,6 +65,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSManagedObject *object = self.employees[indexPath.row];
     cell.textLabel.text = [[object valueForKey:@"name"] description];
+    cell.detailTextLabel.text = [[object valueForKey:@"salary"] description];
 }
 
 - (IBAction)doFetchRequest:(id)sender {
@@ -102,4 +103,43 @@
     [self.managedObjectContext reset];
     [self.tableView reloadData];
 }
+
+- (IBAction)doBatchUpdateInMemory:(id)sender {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Employee"];
+    NSError *fetchError;
+    self.employees = [self.managedObjectContext executeFetchRequest:fetchRequest error:&fetchError];
+    if (!self.employees) {
+        NSLog(@"%@", fetchError);
+    } else {
+        CGFloat salary = fmodf([NSDate timeIntervalSinceReferenceDate], 10);
+        for (NSManagedObject *employee in self.employees) {
+            [employee setValue:@(salary) forKey:@"salary"];
+        }
+    }
+    [self.tableView reloadData];
+}
+
+- (IBAction)doBatchUpdateRequest:(id)sender {
+    CGFloat salary = fmodf([NSDate timeIntervalSinceReferenceDate], 10);
+    
+    NSBatchUpdateRequest *batchUpdateRequest = [NSBatchUpdateRequest batchUpdateRequestWithEntityName:@"Employee"];
+    batchUpdateRequest.propertiesToUpdate = @{@"salary" : @(salary)};
+    batchUpdateRequest.resultType = NSUpdatedObjectIDsResultType;
+    
+    NSError *requestError;
+    NSBatchUpdateResult *result = (NSBatchUpdateResult*)[self.managedObjectContext executeRequest:batchUpdateRequest error:&requestError];
+    if (!result) {
+        NSLog(@"%@", requestError);
+    } else {
+        self.managedObjectContext.stalenessInterval = 0;
+        
+        for (NSManagedObjectID *objectID in result.result) {
+            NSManagedObject *object = [self.managedObjectContext objectWithID:objectID];
+            [self.managedObjectContext refreshObject:object mergeChanges:YES];
+        }
+        
+        [self.tableView reloadData];
+    }
+}
+
 @end

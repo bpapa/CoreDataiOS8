@@ -32,9 +32,11 @@
     BOOL oneTimeLoadDone = [[NSUserDefaults standardUserDefaults] boolForKey:oneTimeLoadDoneKey];
     if (!oneTimeLoadDone) {
         NSArray *names = @[@"Jordan", @"Bryan", @"Michie", @"Steve", @"Khoi", @"Michael", @"Doug", @"Faisal", @"David", @"Marco", @"Josh", @"Brian", @"Ryan", @"Matt", @"Dave", @"Abhinav", @"Sven", @"Yu", @"Karthik", @"Max", @"Connor", @"Andrew", @"William", @"Rachel"];
+        NSArray *salaries = @[@(100), @(90), @(80), @(70), @(60), @(50), @(40), @(30), @(20), @(10), @(100), @(90), @(80), @(70), @(60), @(50), @(40), @(30), @(20), @(10), @(100), @(90), @(80), @(70)];
         for (int i = 0; i < 2000000; i++) {
             NSManagedObject *managedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:self.managedObjectContext];
             [managedObject setValue:names[i % names.count] forKey:@"name"];
+            [managedObject setValue:salaries[i % salaries.count] forKey:@"salary"];
         }
         [self saveContext];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:oneTimeLoadDoneKey];

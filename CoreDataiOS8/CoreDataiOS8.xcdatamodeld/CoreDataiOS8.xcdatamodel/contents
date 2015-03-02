@@ -12,7 +12,7 @@
         <relationship name="managedDepartment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Department" inverseName="manager" inverseEntity="Department" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Employee" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Department" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="Employee" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
