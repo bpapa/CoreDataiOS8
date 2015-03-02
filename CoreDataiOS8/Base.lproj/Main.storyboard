@@ -79,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="QVk-go-4He">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="113"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hD-7e-Mh6" userLabel="NSAsynchronousFetchRequest fetch">
@@ -89,6 +89,15 @@
                                     </state>
                                     <connections>
                                         <action selector="doAsyncFetchRequest:" destination="7bK-jq-Zjz" eventType="touchUpInside" id="fQh-oY-oVX"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIy-x1-UXZ">
+                                    <rect key="frame" x="8" y="46" width="40" height="30"/>
+                                    <state key="normal" title="Reset">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="doReset:" destination="7bK-jq-Zjz" eventType="touchUpInside" id="pem-Qg-akF"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpI-iM-KnS">
@@ -103,9 +112,11 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="RIy-x1-UXZ" firstAttribute="top" secondItem="jpI-iM-KnS" secondAttribute="bottom" constant="8" id="5f8-kA-2vg"/>
                                 <constraint firstAttribute="trailing" secondItem="6hD-7e-Mh6" secondAttribute="trailing" constant="8" id="6cM-xI-Mz1"/>
                                 <constraint firstItem="6hD-7e-Mh6" firstAttribute="top" secondItem="QVk-go-4He" secondAttribute="top" constant="8" id="7BU-zt-XLl"/>
                                 <constraint firstItem="jpI-iM-KnS" firstAttribute="leading" secondItem="QVk-go-4He" secondAttribute="leading" constant="8" id="J63-fO-1N1"/>
+                                <constraint firstItem="RIy-x1-UXZ" firstAttribute="leading" secondItem="QVk-go-4He" secondAttribute="leading" constant="8" id="K0J-TT-R3c"/>
                                 <constraint firstItem="jpI-iM-KnS" firstAttribute="top" secondItem="QVk-go-4He" secondAttribute="top" constant="8" id="nce-09-Dmh"/>
                             </constraints>
                         </view>

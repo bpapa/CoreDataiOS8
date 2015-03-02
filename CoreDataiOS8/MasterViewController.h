@@ -19,6 +19,7 @@
 
 - (IBAction)doFetchRequest:(id)sender;
 - (IBAction)doAsyncFetchRequest:(id)sender;
+- (IBAction)doReset:(id)sender;
 
 @end
 

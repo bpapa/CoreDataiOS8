@@ -96,4 +96,10 @@
         }
     }];
 }
+
+- (IBAction)doReset:(id)sender {
+    self.employees = nil;
+    [self.managedObjectContext reset];
+    [self.tableView reloadData];
+}
 @end
